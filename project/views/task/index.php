@@ -73,7 +73,8 @@
                     <td><?= $task->getStatusText() ?></td>
                     <?php if (isset($_SESSION['username'])): ?>
                         <td>
-                            <form action="/tasks/<?= $task->getId() ?>/delete/" method="POST">
+                            <form action="<?= \Core\Route::generateUrl('/tasks/' . $task->getId() . '/delete/') ?>"
+                                  method="POST">
                                 <button>Удалить</button>
                             </form>
                         </td>
