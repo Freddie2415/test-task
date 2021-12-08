@@ -3,6 +3,7 @@
 namespace Project\Repositories;
 
 use Core\Model;
+use Core\Route;
 use Exception;
 use Project\Models\Task;
 
@@ -30,7 +31,8 @@ class TaskCrudRepository extends Repository implements ICrudRepository
         $links = [];
 
         for ($i = 1; $i <= ceil($total / $perPage); $i++) {
-            $links[] = $page === $i ? "#" : "?page=$i&column=$column&direction=$direction";
+            $link = $page === $i ? "#" : "?page=$i&column=$column&direction=$direction";
+            $links[] = Route::generateUrl($link);
         }
 
         $query = "SELECT id, name, email, description, status, edited FROM tasks ORDER BY `$column` $direction LiMIT $skip, $perPage";

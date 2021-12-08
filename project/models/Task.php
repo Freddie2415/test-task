@@ -3,6 +3,7 @@
 namespace Project\Models;
 
 use Core\Model;
+use Core\Route;
 
 class Task extends Model
 {
@@ -93,5 +94,10 @@ class Task extends Model
     public function setId($id)
     {
         $this->id = $id;
+    }
+
+    public function getUrl(): string
+    {
+        return Route::generateUrl("tasks/$this->id/");
     }
 }

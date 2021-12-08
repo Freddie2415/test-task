@@ -31,4 +31,13 @@ class Route
     {
         return $this->$property;
     }
+
+    static function generateUrl(string $path): string
+    {
+        if (!empty($path) && $path[0] === '/') {
+            $path = substr($path, 1);
+        }
+
+        return APP_URL . "/$path";
+    }
 }

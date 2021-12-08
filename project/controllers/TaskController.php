@@ -4,6 +4,7 @@ namespace Project\Controllers;
 
 use Core\Controller;
 use Core\Page;
+use Core\Route;
 use Exception;
 use Project\Repositories\TaskCrudRepository;
 
@@ -32,11 +33,11 @@ class TaskController extends Controller
         $direction = $direction === 'desc' ? 'asc' : 'desc';
 
         $sort = [
-            'id' => "/?page=$page&column=id&direction=$direction",
-            'name' => "/?page=$page&column=name&direction=$direction",
-            'email' => "/?page=$page&column=email&direction=$direction",
-            'description' => "/?page=$page&column=description&direction=$direction",
-            'status' => "/?page=$page&column=status&direction=$direction",
+            'id' => Route::generateUrl("?page=$page&column=id&direction=$direction"),
+            'name' => Route::generateUrl("?page=$page&column=name&direction=$direction"),
+            'email' => Route::generateUrl("?page=$page&column=email&direction=$direction"),
+            'description' => Route::generateUrl("?page=$page&column=description&direction=$direction"),
+            'status' => Route::generateUrl("?page=$page&column=status&direction=$direction"),
         ];
 
         return $this->render('task/index', [

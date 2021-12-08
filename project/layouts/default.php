@@ -15,7 +15,7 @@
 <header>
     <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container">
-            <a href="/" class="navbar-brand d-flex align-items-center">
+            <a href="<?= \Core\Route::generateUrl('/') ?>" class="navbar-brand d-flex align-items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
                      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2"
                      viewBox="0 0 24 24">
@@ -26,13 +26,13 @@
             </a>
             <?php if (isset($_SESSION['username'])): ?>
                 <strong class="navbar-brand">Пользователь: <?= $_SESSION['username'] ?></strong>
-                <form action="/logout" method="post">
+                <form action="<?= \Core\Route::generateUrl('/logout') ?>" method="post">
                     <button type="submit" class="navbar-toggler">
                         Выход
                     </button>
                 </form>
             <?php else: ?>
-                <a href="/login" class="navbar-toggler">
+                <a href="<?=\Core\Route::generateUrl('/login')?>" class="navbar-toggler">
                     Авторизоваться
                 </a>
             <?php endif; ?>

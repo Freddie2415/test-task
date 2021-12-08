@@ -1,6 +1,6 @@
 <div class="album py-5 bg-light">
     <div class="container">
-        <form method="post">
+        <form method="post" action="<?= \Core\Route::generateUrl("login")?>">
             <legend>Авторизация</legend>
             <div class="mb-3">
                 <label for="login" class="form-label">Логин</label>

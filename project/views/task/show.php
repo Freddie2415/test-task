@@ -1,6 +1,6 @@
 <div class="album py-5 bg-light">
     <div class="container">
-        <form method="post" action="<?= "/tasks/{$task->getId()}/update/" ?>">
+        <form method="post" action="<?= \Core\Route::generateUrl("tasks/{$task->getId()}/update/") ?>">
             <legend>Изменение задачи...</legend>
             <div class="mb-3">
                 <label for="id" class="form-label">#ID</label>

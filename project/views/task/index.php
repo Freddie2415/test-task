@@ -1,6 +1,6 @@
 <div class="album py-5 bg-light">
     <div class="container">
-        <form method="post" action="/">
+        <form method="post" action="<?= \Core\Route::generateUrl('tasks') ?>">
             <legend>Добавьте задачу...</legend>
             <div class="mb-3">
                 <label for="name" class="form-label">Имя</label>
@@ -64,7 +64,9 @@
             <tbody>
             <?php foreach ($tasks['data'] as $task): ?>
                 <tr>
-                    <th scope="row"><a href="/tasks/<?= $task->getId() ?>/"><?= $task->getId() ?></a></th>
+                    <th scope="row">
+                        <a href="<?= $task->getUrl() ?>"><?= $task->getId() ?></a>
+                    </th>
                     <td><?= $task->getName() ?></td>
                     <td><?= $task->getEmail() ?></td>
                     <td><?= $task->getDescription() ?></td>
